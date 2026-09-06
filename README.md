@@ -1,5 +1,7 @@
 # Vuppala Akshay — Portfolio
 
+🌐 **Live:** https://vakshay.vercel.app
+
 Personal portfolio of **Vuppala Akshay**, AI & Frontend Developer from Hyderabad.
 Built with Next.js, React, Tailwind CSS and a sprinkle of AI.
 
