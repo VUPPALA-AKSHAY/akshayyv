@@ -1,0 +1,13 @@
+# Robots.txt for Vuppala Akshay Portfolio
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas
+Disallow: /api/
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://vuppala-akshay.vercel.app/sitemap.xml
+
+# Host declaration (helps with canonicalization)
+Host: https://vuppala-akshay.vercel.app
