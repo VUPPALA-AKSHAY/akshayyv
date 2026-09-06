@@ -166,6 +166,7 @@
 body {
   background-color: var(--page-bg);
   transition: background-color 0.5s ease;
+  overflow-x: clip;
 }
 
 @layer base {
@@ -342,4 +343,31 @@ body {
   to {
     mask-size: 200vmax;
   }
+}
+
+/* Skill tile: icon-only at rest, expands right on hover to reveal name */
+.skill-tile {
+  display: flex;
+  height: 2rem;
+  width: max-content;
+  max-width: 2rem;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px dashed rgb(0 0 0 / 0.2);
+  background: white;
+  cursor: default;
+  transition: max-width 0.3s ease, border-color 0.3s ease;
+  z-index: 0;
+}
+
+.dark .skill-tile {
+  border-color: rgb(255 255 255 / 0.2);
+  background: rgb(255 255 255 / 0.05);
+}
+
+.skill-tile:hover {
+  max-width: 220px;
+  border-color: var(--brand);
+  z-index: 20;
 }

@@ -1,23 +1,45 @@
 'use client'
 
 import Image from 'next/image'
-import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip'
 
 const SVG = 'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons'
 
+// Every icon-backed skill from the resume: dev + languages + AI + cloud + tools
 const skills = [
-    { name: 'React', icon: `${SVG}/react/default.svg` },
-    { name: 'Next.js', icon: `${SVG}/nextjs/default.svg` },
     { name: 'JavaScript', icon: `${SVG}/javascript/default.svg` },
     { name: 'TypeScript', icon: `${SVG}/typescript/default.svg` },
+    { name: 'React', icon: `${SVG}/react/default.svg` },
+    { name: 'Next.js', icon: `${SVG}/nextjs/default.svg` },
     { name: 'Node.js', icon: `${SVG}/nodejs/default.svg` },
+    { name: 'Express.js', icon: `${SVG}/express/default.svg` },
     { name: 'Tailwind CSS', icon: `${SVG}/tailwind-css/default.svg` },
     { name: 'Python', icon: `${SVG}/python/default.svg` },
     { name: 'MySQL', icon: `${SVG}/mysql/default.svg` },
     { name: 'PostgreSQL', icon: `${SVG}/postgresql/default.svg` },
     { name: 'Supabase', icon: `${SVG}/supabase/default.svg` },
-    { name: 'Docker', icon: `${SVG}/docker/default.svg` },
+    { name: 'LangChain', icon: `${SVG}/langchain/default.svg` },
+    { name: 'LangGraph', icon: `${SVG}/langgraph/default.svg` },
+    { name: 'LlamaIndex', icon: `${SVG}/llamaindex/default.svg` },
+    { name: 'Pinecone', icon: `${SVG}/pinecone/default.svg` },
+    { name: 'Qdrant', icon: `${SVG}/qdrant/default.svg` },
+    { name: 'Gemini', icon: `${SVG}/gemini/default.svg` },
+    { name: 'Groq', icon: `${SVG}/groq/default.svg` },
+    { name: 'Claude', icon: `${SVG}/claude/default.svg` },
+    { name: 'Mistral', icon: `${SVG}/mistral/default.svg` },
+    { name: 'OpenAI', icon: `${SVG}/openai/default.svg` },
+    { name: 'DeepSeek', icon: `${SVG}/deepseek/default.svg` },
+    { name: 'CrewAI', icon: `${SVG}/crewai/default.svg` },
+    { name: 'Keras', icon: `${SVG}/keras/default.svg` },
+    { name: 'n8n', icon: `${SVG}/n8n/default.svg` },
     { name: 'Google Cloud', icon: `${SVG}/google-cloud/default.svg` },
+    { name: 'Docker', icon: `${SVG}/docker/default.svg` },
+    { name: 'Git', icon: `${SVG}/git/default.svg` },
+    { name: 'GitHub', icon: `${SVG}/github/default.svg` },
+    { name: 'VS Code', icon: `${SVG}/visual-studio-code/default.svg` },
+    { name: 'Postman', icon: `${SVG}/postman/default.svg` },
+    { name: 'Jupyter', icon: `${SVG}/jupyter/default.svg` },
+    { name: 'Colab', icon: `${SVG}/google-colab/default.svg` },
+    { name: 'Excel', icon: `${SVG}/microsoft-excel/default.svg` },
 ]
 
 export default function AboutMe() {
@@ -57,31 +79,30 @@ export default function AboutMe() {
                         I&apos;m an aspiring AI and Frontend Developer from Hyderabad, pursuing BCA at KL University (CGPA 8.55). I build full-stack web apps and AI experiences — RAG chatbots, autonomous agents, and clean React interfaces. Infosys Springboard intern, hackathon finalist, and always shipping.
                     </p>
 
-                    {/* Skills */}
-                    <div>
-                        <h4 className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-3">Skills</h4>
-                        <div className="flex flex-wrap gap-3">
-                            {skills.map((skill) => (
-                                <Tooltip key={skill.name}>
-                                    <TooltipTrigger asChild>
-                                        <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
-                                            <Image
-                                                src={skill.icon}
-                                                alt={skill.name}
-                                                width={28}
-                                                height={28}
-                                                className="w-6 h-6 sm:w-7 sm:h-7"
-                                                unoptimized
-                                            />
-                                        </div>
-                                    </TooltipTrigger>
-                                    <TooltipContent>
-                                        {skill.name}
-                                    </TooltipContent>
-                                </Tooltip>
-                            ))}
+                </div>
+            </div>
+
+            {/* Skills — full width below */}
+            <div className="mt-6 sm:mt-8">
+                <h4 className="font-[family-name:var(--font-instrument-serif)] text-xl sm:text-2xl text-black dark:text-white mb-4">Skills</h4>
+                <div className="flex flex-wrap gap-2.5 sm:gap-3">
+                    {skills.map((skill) => (
+                        <div key={skill.name} className="skill-tile group">
+                            <div className="flex h-8 w-8 shrink-0 items-center justify-center">
+                                <Image
+                                    src={skill.icon}
+                                    alt={skill.name}
+                                    width={16}
+                                    height={16}
+                                    className="w-4 h-4"
+                                    unoptimized
+                                />
+                            </div>
+                            <span className="whitespace-nowrap shrink-0 pr-3 text-[11px] font-medium text-black/80 dark:text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                {skill.name}
+                            </span>
                         </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>
