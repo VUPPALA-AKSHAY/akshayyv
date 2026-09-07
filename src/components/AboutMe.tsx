@@ -100,7 +100,7 @@ export default function AboutMe() {
                     unoptimized
                 />
             </div>
-            <span className="whitespace-nowrap shrink-0 pr-3 text-[11px] font-medium text-black/80 dark:text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <span className="whitespace-nowrap shrink-0 pr-3 text-[11px] font-medium text-black/80 dark:text-white/80 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
                 {skill.name}
             </span>
         </div>
