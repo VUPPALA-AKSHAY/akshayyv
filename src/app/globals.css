@@ -345,9 +345,19 @@ body {
   }
 }
 
-/* Skill tile: icon-only at rest, expands right on hover to reveal name */
+/* Diagonal pattern: light = original thin lines, dark = thick visible lines */
+.diagonal-fill {
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 2px, currentcolor 2px, currentcolor 3px, transparent 3px, transparent 6px);
+}
+
+.dark .diagonal-fill {
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 4px, currentcolor 4px, currentcolor 7px, transparent 7px, transparent 11px);
+}
+
+/* Skill tile: icon-only at rest, expands right in-flow on hover to reveal name */
 .skill-tile {
   display: flex;
+  flex: none;
   height: 2rem;
   width: max-content;
   max-width: 2rem;
@@ -358,7 +368,6 @@ body {
   background: white;
   cursor: default;
   transition: max-width 0.3s ease, border-color 0.3s ease;
-  z-index: 0;
 }
 
 .dark .skill-tile {
@@ -367,7 +376,6 @@ body {
 }
 
 .skill-tile:hover {
-  max-width: 220px;
+  max-width: 160px;
   border-color: var(--brand);
-  z-index: 20;
 }

@@ -11,7 +11,7 @@ interface CallToActionProps {
 }
 
 export default function CallToAction({
-  profileImage = "/pfp.jpg",
+  profileImage = "/images/new-avatar.png",
   profileAlt = "Profile",
   linkText = "Let's Work Together",
   linkUrl = "mailto:akshay.dunny08@gmail.com",

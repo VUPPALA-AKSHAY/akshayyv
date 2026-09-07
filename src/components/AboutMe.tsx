@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 
 const SVG = 'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons'
@@ -47,7 +48,64 @@ const skills = [
     { name: 'Excel', icon: `${SVG}/microsoft-excel/default.svg` },
 ]
 
+// In-flow tiles grow to the right on hover. A wrapping row has no free space,
+// so a growing last tile would jump down a line (the flicker). Fix without any
+// overlay: lay tiles out in fixed non-wrapping rows that each end ~152px early
+// on desktop. Hover growth (max 160px tile - 32px icon = 128px) fills that
+// reserved gutter instead of re-wrapping, and rows below never move.
+const ROW_RESERVE = 152
+const TILE = 32
+const GAP = 12
+const GAP_MOBILE = 10
+
 export default function AboutMe() {
+    const gridRef = useRef<HTMLDivElement>(null)
+    const [perRow, setPerRow] = useState(0)
+
+    useEffect(() => {
+        const el = gridRef.current
+        if (!el) return
+        const compute = () => {
+            const sm = window.matchMedia('(min-width: 640px)').matches
+            const gap = sm ? GAP : GAP_MOBILE
+            const avail = el.clientWidth - (sm ? ROW_RESERVE : 0)
+            setPerRow(Math.max(2, Math.floor((avail + gap) / (TILE + gap))))
+        }
+        compute()
+        let t: ReturnType<typeof setTimeout> | undefined
+        const onResize = () => {
+            clearTimeout(t)
+            t = setTimeout(compute, 120)
+        }
+        window.addEventListener('resize', onResize)
+        return () => window.removeEventListener('resize', onResize)
+    }, [])
+
+    const rows: typeof skills[] = []
+    if (perRow > 0) {
+        for (let i = 0; i < skills.length; i += perRow) {
+            rows.push(skills.slice(i, i + perRow))
+        }
+    }
+
+    const renderTile = (skill: (typeof skills)[number]) => (
+        <div key={skill.name} className="skill-tile group">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center">
+                <Image
+                    src={skill.icon}
+                    alt={skill.name}
+                    width={16}
+                    height={16}
+                    className="w-4 h-4"
+                    unoptimized
+                />
+            </div>
+            <span className="whitespace-nowrap shrink-0 pr-3 text-[11px] font-medium text-black/80 dark:text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                {skill.name}
+            </span>
+        </div>
+    )
+
     return (
         <div className="w-full">
             {/* Section Header */}
@@ -62,7 +120,7 @@ export default function AboutMe() {
                 <div className="shrink-0">
                     <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden shadow-lg">
                         <Image
-                            src="/images/about-me.jpg"
+                            src="/images/new-avatar.png"
                             alt="Vuppala Akshay"
                             width={192}
                             height={192}
@@ -90,24 +148,18 @@ export default function AboutMe() {
             {/* Skills — full width below */}
             <div className="mt-6 sm:mt-8">
                 <h4 className="font-[family-name:var(--font-instrument-serif)] text-xl sm:text-2xl text-black dark:text-white mb-4">Skills</h4>
-                <div className="flex flex-wrap gap-2.5 sm:gap-3">
-                    {skills.map((skill) => (
-                        <div key={skill.name} className="skill-tile group">
-                            <div className="flex h-8 w-8 shrink-0 items-center justify-center">
-                                <Image
-                                    src={skill.icon}
-                                    alt={skill.name}
-                                    width={16}
-                                    height={16}
-                                    className="w-4 h-4"
-                                    unoptimized
-                                />
+                <div ref={gridRef} className="overflow-visible sm:pr-[152px]">
+                    {perRow > 0 ? (
+                        rows.map((row, ri) => (
+                            <div key={ri} className="flex flex-nowrap gap-2.5 sm:gap-3 overflow-visible mb-2.5 sm:mb-3 last:mb-0">
+                                {row.map(renderTile)}
                             </div>
-                            <span className="whitespace-nowrap shrink-0 pr-3 text-[11px] font-medium text-black/80 dark:text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                                {skill.name}
-                            </span>
+                        ))
+                    ) : (
+                        <div className="flex flex-wrap gap-2.5 sm:gap-3">
+                            {skills.map(renderTile)}
                         </div>
-                    ))}
+                    )}
                 </div>
             </div>
         </div>

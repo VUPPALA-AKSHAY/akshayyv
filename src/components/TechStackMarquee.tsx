@@ -102,16 +102,12 @@ export default function TechStackMarquee({ className = "" }: TechStackMarqueePro
       </div>
 
       {/* Single Marquee Container */}
-      <div className="relative">
+      <div>
         <Marquee pauseOnHover className="[--duration:80s] [--gap:1rem]">
           {techStack.map((tech, index) => (
             <TechIcon key={`${tech.name}-${index}`} tech={tech} />
           ))}
         </Marquee>
-
-        {/* Fade edges for better visual effect */}
-        <div className="absolute left-0 top-0 w-20 h-full bg-linear-to-r from-white dark:from-zinc-900 to-transparent pointer-events-none z-10" />
-        <div className="absolute right-0 top-0 w-20 h-full bg-linear-to-l from-white dark:from-zinc-900 to-transparent pointer-events-none z-10" />
       </div>
     </div>
   );

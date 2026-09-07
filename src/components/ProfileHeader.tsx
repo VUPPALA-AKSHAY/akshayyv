@@ -24,7 +24,7 @@ export default function ProfileHeader({
   name = "Vuppala Akshay",
   age = "20",
   title = "AI Developer • Frontend Developer",
-  profileImage = "/pfp.jpg",
+  profileImage = "/images/new-avatar.png",
   socialLinks = {
     github: "https://github.com/VUPPALA-AKSHAY",
     linkedin: "https://www.linkedin.com/in/vuppala-akshay-175111289",

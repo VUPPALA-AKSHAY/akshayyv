@@ -36,8 +36,8 @@ export default function NewHeroSection() {
           {/* Banner Section */}
           <Reveal delay={0.1}>
             <BannerSection
-              bannerImage="/banner-dark.jpg"
-              quote="I build smart, user-focused AI and web solutions."
+              bannerImage="/images/new-banner.jpg"
+              quote=""
             />
           </Reveal>
 
@@ -47,7 +47,7 @@ export default function NewHeroSection() {
               name="Vuppala Akshay"
               age="20"
               title="AI Developer • Frontend Developer"
-              profileImage="/pfp.jpg"
+              profileImage="/images/new-avatar.png"
               socialLinks={{
                 github: "https://github.com/VUPPALA-AKSHAY",
                 linkedin: "https://www.linkedin.com/in/vuppala-akshay-175111289",
@@ -156,8 +156,8 @@ export default function NewHeroSection() {
                     </Link>
                   </div>
 
-                  {/* About Me Section */}
-                  <div className="px-4 mt-8 sm:mt-10 mb-8 sm:mb-10">
+                  {/* About Me Section — widened right for skill-tile hover room */}
+                  <div className="px-4 pr-6 sm:pl-4 sm:pr-14 sm:-mr-10 lg:-mr-12 mt-8 sm:mt-10 mb-8 sm:mb-10 overflow-visible">
                     <AboutMe />
                   </div>
 
@@ -210,7 +210,7 @@ export default function NewHeroSection() {
               <Reveal delay={0.1}>
                 <div className="px-4 sm:px-0">
                   <CallToAction
-                    profileImage="/pfp.jpg"
+                    profileImage="/images/new-avatar.png"
                     linkText="Let's Work Together"
                     linkUrl="mailto:akshay.dunny08@gmail.com"
                     preText="If you've read this far, you might be interested in what I do."

@@ -13,23 +13,21 @@ export default function BannerSection({
 }: BannerSectionProps) {
   return (
     <div className="w-full mb-2 relative">
-      <div className="relative" style={{ height: 'auto' }}>
+      <div className="relative overflow-hidden rounded-2xl" style={{ height: 'auto' }}>
         <Image
           alt="Banner"
           width={1240}
           height={900}
-          className="rounded-none w-full h-[200px] sm:h-[270px] object-cover"
+          className="rounded-2xl w-full h-[200px] sm:h-[270px] object-cover"
           src={bannerImage}
           style={{ color: 'transparent', minHeight: '100px' }}
           priority
         />
-        <div
-          className="absolute inset-0 transition-[background-color] duration-500"
-          style={{ background: 'color-mix(in srgb, var(--brand) 26%, transparent)' }}
-        />
-        <div className="absolute inset-0 flex items-center justify-center px-4">
-          <p className="text-white text-base sm:text-xl italic font-[family-name:var(--font-instrument-serif)] text-center">{quote}</p>
-        </div>
+        {quote ? (
+          <div className="absolute inset-0 flex items-center justify-center px-4">
+            <p className="text-white text-base sm:text-xl italic font-[family-name:var(--font-instrument-serif)] text-center">{quote}</p>
+          </div>
+        ) : null}
       </div>
     </div>
   )
