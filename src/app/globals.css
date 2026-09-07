@@ -385,3 +385,9 @@ body {
   max-width: 160px;
   border-color: var(--brand);
 }
+
+.skill-tile:focus-visible {
+  max-width: 160px;
+  border-color: var(--brand);
+  outline: none;
+}
