@@ -357,9 +357,9 @@ body {
 /* Skill tile: icon-only at rest, expands right in-flow on hover to reveal name */
 .skill-tile {
   display: flex;
-  flex: none;
   height: 2rem;
   width: max-content;
+  flex-shrink: 0;
   max-width: 2rem;
   align-items: center;
   overflow: hidden;
@@ -378,4 +378,8 @@ body {
 .skill-tile:hover {
   max-width: 160px;
   border-color: var(--brand);
+}
+
+.skill-tile:hover span {
+  opacity: 1;
 }
