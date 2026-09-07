@@ -89,7 +89,7 @@ export default function AboutMe() {
     }
 
     const renderTile = (skill: (typeof skills)[number]) => (
-        <div key={skill.name} className="skill-tile group">
+        <div key={skill.name} className="skill-tile group" tabIndex={0}>
             <div className="flex h-8 w-8 shrink-0 items-center justify-center">
                 <Image
                     src={skill.icon}
@@ -100,7 +100,7 @@ export default function AboutMe() {
                     unoptimized
                 />
             </div>
-            <span className="whitespace-nowrap shrink-0 pr-3 text-[11px] font-medium text-black/80 dark:text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <span className="whitespace-nowrap shrink-0 pr-3 text-[11px] font-medium text-black/80 dark:text-white/80 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-200">
                 {skill.name}
             </span>
         </div>
