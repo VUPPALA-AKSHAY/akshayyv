@@ -1,9 +1,3 @@
-'use client'
-
-interface SectionBorderProps {
-  className?: string
-}
-
-export default function SectionBorder({ className = '' }: SectionBorderProps) {
+export default function SectionBorder() {
   return null
 }

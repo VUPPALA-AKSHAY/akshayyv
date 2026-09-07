@@ -71,7 +71,7 @@ export default function NewHeroSection() {
               </Reveal>
 
               <Reveal delay={0.05}>
-                <SectionBorder className="mt-6" />
+                <SectionBorder />
               </Reveal>
 
               {/* About Section */}
@@ -89,7 +89,7 @@ export default function NewHeroSection() {
               </Reveal>
 
               <Reveal delay={0.05}>
-                <SectionBorder className="mt-6" />
+                <SectionBorder />
               </Reveal>
 
               {/* Paint my portfolio */}
@@ -102,7 +102,7 @@ export default function NewHeroSection() {
               </Reveal>
 
               <Reveal delay={0.05}>
-                <SectionBorder className="mt-4" />
+                <SectionBorder />
               </Reveal>
 
               {/* Experience Section */}
@@ -116,7 +116,7 @@ export default function NewHeroSection() {
               </Reveal>
 
               <Reveal delay={0.05}>
-                <SectionBorder className="mt-4" />
+                <SectionBorder />
               </Reveal>
 
               {/* Education & Certifications */}
@@ -130,7 +130,7 @@ export default function NewHeroSection() {
               </Reveal>
 
               <Reveal delay={0.05}>
-                <SectionBorder className="mt-4" />
+                <SectionBorder />
               </Reveal>
 
               {/* Projects / Works */}
@@ -169,7 +169,7 @@ export default function NewHeroSection() {
               </Reveal>
 
               <Reveal delay={0.05}>
-                <SectionBorder className="mt-0 pt-0" />
+                <SectionBorder />
               </Reveal>
 
               {/* Thoughts Section */}
@@ -189,7 +189,7 @@ export default function NewHeroSection() {
               </Reveal>
 
               <Reveal delay={0.05}>
-                <SectionBorder className="mt-0 pt-0" />
+                <SectionBorder />
               </Reveal>
 
               {/* Tech Stack Section */}
@@ -202,7 +202,7 @@ export default function NewHeroSection() {
               </Reveal>
 
               <Reveal delay={0.05}>
-                <SectionBorder className="mt-0 pt-0" />
+                <SectionBorder />
               </Reveal>
 
 
@@ -219,7 +219,7 @@ export default function NewHeroSection() {
               </Reveal>
 
               <Reveal delay={0.05}>
-                <SectionBorder className="mt-0 pt-0" />
+                <SectionBorder />
               </Reveal>
 
               {/* Reachout Section */}

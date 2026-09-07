@@ -67,7 +67,7 @@ export default function RootLayout({
             divCount={5}
           />
           <ScrollToTop />
-          {process.env.NODE_ENV === "development" && <Agentation />}
+          {process.env.NODE_ENV === "development" && <Agentation webhookUrl="/api/agentation" />}
         </ThemeProvider>
       </body>
     </html>
