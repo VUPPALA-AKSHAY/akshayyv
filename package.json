@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@dayflow/blossom-color-picker-react": "^1.2.1",
+    "@designcodeio/threeui": "^1.2.0",
     "@neondatabase/serverless": "^1.0.2",
     "@octokit/rest": "^22.0.0",
     "@radix-ui/react-avatar": "^1.1.10",
@@ -27,13 +28,14 @@
     "motion": "^12.23.26",
     "next": "15.2.8",
     "next-themes": "^0.4.6",
-    "next-video": "^2.2.3",
+    "next-video": "^2.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-github-calendar": "^4.5.9",
     "react-icons": "^5.5.0",
     "react-markdown": "^10.1.0",
     "tailwind-merge": "^3.4.0",
+    "three": "^0.185.1",
     "tw-animate-css": "^1.2.4"
   },
   "devDependencies": {
